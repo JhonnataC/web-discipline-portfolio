@@ -1,0 +1,7 @@
+venv/
+
+aula_templates.md
+
+db.sqlite3
+__pycache__/
+*.pyc
