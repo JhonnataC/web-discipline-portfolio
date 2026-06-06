@@ -1,8 +1,18 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 
 class Profile(models.Model):
+    # Vincula o perfil a um usuario do Django
+    usuario = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='perfil',
+        null=True,
+        blank=True,
+    )
+
     name = models.CharField(max_length=100, verbose_name="Nome")
     description = models.TextField(verbose_name="Descrição")
     course = models.CharField(max_length=100, verbose_name="Curso") 
